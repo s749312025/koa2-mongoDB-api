@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <div>
+      username：<input type="text" id="username">
+    </div>
+    <div>
+      nickname：<input type="text" id="nickname">
+    </div>
+    <div>
+      password：<input type="text" id="password">
+    </div>
+    <button id="sub">sign up!</button>
+  </div>
+  <div>
+      <div>
+        username：<input type="text" id="username1">
+      </div>
+      <div>
+        password：<input type="text" id="password1">
+      </div>
+      <button id="login">login!</button>
+    </div>
+</body>
+<script>
+  $('#sub').on('click', function() {
+    $.ajax({
+      type:"POST",
+      url: 'http://localhost:3000/api/signup',
+      dataType: 'json',
+      data:{
+        "username": $('#username').val(),
+        "nickname": $('#nickname').val(),
+        "password": $('#password').val()
+      },
+      success:function(data) {
+        console.log(data)
+      }
+    })
+  })
+  $('#login').on('click', function() {
+    $.ajax({
+      type:"POST",
+      url: 'http://localhost:3000/api/login',
+      dataType: 'json',
+      data:{
+        "username": $('#username1').val(),
+        "password": $('#password1').val()
+      },
+      success:function(data) {
+        console.log(data)
+      }
+    })
+  })
+  
+</script>
+</html>

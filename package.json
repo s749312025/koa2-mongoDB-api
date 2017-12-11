@@ -17,6 +17,8 @@
     "koa-static": "^4.0.2",
     "mongoose": "^4.13.6",
     "monk": "^6.0.5",
-    "util": "^0.10.3"
+    "util": "^0.10.3",
+    "validator": "^9.2.0",
+    "validator.tool": "^1.0.8"
   }
 }

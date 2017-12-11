@@ -1,6 +1,7 @@
-var mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
-var userModel = require('../schema/user')
+const userModel = require('../schema/user')
+
 
 exports.signUp = async(ctx, next) => {
   var userInfor = ctx.request.body;

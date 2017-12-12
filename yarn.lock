@@ -678,10 +678,6 @@ util@^0.10.3:
   dependencies:
     inherits "2.0.1"
 
-validator.tool@^1.0.8:
-  version "1.0.8"
-  resolved "http://registry.npm.taobao.org/validator.tool/download/validator.tool-1.0.8.tgz#d250d00770d5a82c69ca887652ced14f20781786"
-
 validator@^9.2.0:
   version "9.2.0"
   resolved "http://registry.npm.taobao.org/validator/download/validator-9.2.0.tgz#ad216eed5f37cac31a6fe00ceab1f6b88bded03e"

@@ -2,9 +2,16 @@ const mongoose = require('mongoose')
 
 const userModel = require('../schema/user')
 
+const vaildatorFun = require('../validation')
+
 
 exports.signUp = async(ctx, next) => {
   var userInfor = ctx.request.body;
+  var isPass = vaildatorFun(userInfor, 'signup');
+  if(isPass.status == 'error') {
+    ctx.body = isPass
+    return
+  }
   var user = await userModel.findOne({
     username: userInfor.username
   })
@@ -27,11 +34,10 @@ exports.signUp = async(ctx, next) => {
 
 exports.login = async(ctx, next) => {
   var userInfor = ctx.request.body;
-  if(!userInfor.username) {
-    ctx.body = {status:'error', data: '请填写用户名'}
-  }
-  if(!userInfor.password) {
-    ctx.body = {status:'error', data: '请填写密码'}
+  var isPass = vaildatorFun(userInfor, 'login');
+  if(isPass.status == 'error') {
+    ctx.body = isPass
+    return
   }
   var user = await userModel.findOne({
     username: userInfor.username,

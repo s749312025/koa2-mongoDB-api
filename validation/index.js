@@ -22,15 +22,16 @@ const vaildatorFun = (data, v_type) => {
 	let v_json = switchJson(v_type);
 	let noStr = '';
 	v_json.map((rule) => {
+		let _noStr = ''
 		switch(rule.rule) {
 			case 'isNull':
-				vaildator.isEmpty(data[rule.name]) ? noStr = rule.cn_name + '不能为空' : '';
+				vaildator.isEmpty(data[rule.name]) ? _noStr = rule.cn_name + '不能为空' : '';
 				break;
 			case 'isEmail':
-				vaildator.isEmail(data[rule.name]) ? '' : noStr = rule.cn_name + '格式不正确';
+				vaildator.isEmail(data[rule.name]) ? '' : _noStr = rule.cn_name + '格式不正确';
 				break;
 		}
-		if(noStr.length > 0) return false;
+		noStr.length == 0 ? noStr =  _noStr: '';
 	})
 	if(noStr.length > 0) {
 		return {

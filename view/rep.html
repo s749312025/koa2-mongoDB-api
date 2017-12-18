@@ -43,13 +43,22 @@
       <button id="sub_art_add">提交!</button>
   </div>
   <div>
-      <h1>文章添加</h1>
-      <div>
-          title:<input type="text" id="title1">
-        </div>
-        <button id="sub_art_list">title查询!</button>
-        <div class="content_list" style="width:800px;height:200px;overflow:auto;"></div>
+    <h1>文章查询</h1>
+    <div>
+        title:<input type="text" id="title1">
+      </div>
+      <button id="sub_art_list">title查询!</button>
+  </div>
+  <div>
+    <h1>文章编辑</h1>
+    <div>
+      id:<input type="text" id="artid">
     </div>
+    <div>
+      content:<input type="text" id="content_update">
+    </div>
+    <button id="sub_art_update">更新!</button>
+  </div>
 </body>
 <script>
   $('#sub').on('click', function() {
@@ -107,7 +116,24 @@
         "title": $('#title1').val(),
       },
       success:function(data) {
-        $('.content_list').html(data.data[0].content)
+        console.log(data)
+      },
+      error:function() {
+
+      }
+    })
+  })
+  $('#sub_art_update').on('click', function() {
+    $.ajax({
+      type:"POST",
+      url: 'http://localhost:3000/api/article/update',
+      dataType: 'json',
+      data:{
+        "id": $('#artid').val(),
+        "content": $('#content_update').val(),
+      },
+      success:function(data) {
+        console.log(data)
       },
       error:function() {
 

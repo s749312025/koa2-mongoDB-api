@@ -61,10 +61,11 @@
   </div>
 </body>
 <script>
+	var host = location.protocol + '//' +  location.host
   $('#sub').on('click', function() {
     $.ajax({
       type:"POST",
-      url: 'http://localhost:3000/api/signup',
+      url: host + '/api/signup',
       dataType: 'json',
       data:{
         "username": $('#username').val(),
@@ -79,7 +80,7 @@
   $('#login').on('click', function() {
     $.ajax({
       type:"POST",
-      url: 'http://localhost:3000/api/login',
+      url: host + '/api/login',
       dataType: 'json',
       data:{
         "username": $('#username1').val(),
@@ -93,7 +94,7 @@
   $('#sub_art_add').on('click', function() {
     $.ajax({
       type:"POST",
-      url: 'http://localhost:3000/api/article/add',
+      url: host + '/api/article/add',
       dataType: 'json',
       data:{
         "title": $('#title').val(),
@@ -110,7 +111,7 @@
   $('#sub_art_list').on('click', function() {
     $.ajax({
       type:"POST",
-      url: 'http://localhost:3000/api/article/list',
+      url: host + '/api/article/list',
       dataType: 'json',
       data:{
         "title": $('#title1').val(),
@@ -126,7 +127,7 @@
   $('#sub_art_update').on('click', function() {
     $.ajax({
       type:"POST",
-      url: 'http://localhost:3000/api/article/update',
+      url: host + '/api/article/update',
       dataType: 'json',
       data:{
         "id": $('#artid').val(),

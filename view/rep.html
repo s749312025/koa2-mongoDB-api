@@ -9,6 +9,7 @@
 </head>
 <body>
   <div>
+    <h1>注册</h1>
     <div>
       username：<input type="text" id="username">
     </div>
@@ -21,13 +22,33 @@
     <button id="sub">sign up!</button>
   </div>
   <div>
-      <div>
-        username：<input type="text" id="username1">
+    <h1>登录</h1>
+    <div>
+      username：<input type="text" id="username1">
+    </div>
+    <div>
+      password：<input type="text" id="password1">
+    </div>
+    <button id="login">login!</button>
+  </div>
+
+  <div>
+    <h1>文章添加</h1>
+    <div>
+        title:<input type="text" id="title">
       </div>
       <div>
-        password：<input type="text" id="password1">
+        content:<input type="text" id="content">
       </div>
-      <button id="login">login!</button>
+      <button id="sub_art_add">提交!</button>
+  </div>
+  <div>
+      <h1>文章添加</h1>
+      <div>
+          title:<input type="text" id="title1">
+        </div>
+        <button id="sub_art_list">title查询!</button>
+        <div class="content_list" style="width:800px;height:200px;overflow:auto;"></div>
     </div>
 </body>
 <script>
@@ -57,6 +78,39 @@
       },
       success:function(data) {
         console.log(data)
+      }
+    })
+  })
+  $('#sub_art_add').on('click', function() {
+    $.ajax({
+      type:"POST",
+      url: 'http://localhost:3000/api/article/add',
+      dataType: 'json',
+      data:{
+        "title": $('#title').val(),
+        "content": $('#content').val()
+      },
+      success:function(data) {
+        console.log(data)
+      },
+      error:function() {
+
+      }
+    })
+  })
+  $('#sub_art_list').on('click', function() {
+    $.ajax({
+      type:"POST",
+      url: 'http://localhost:3000/api/article/list',
+      dataType: 'json',
+      data:{
+        "title": $('#title1').val(),
+      },
+      success:function(data) {
+        $('.content_list').html(data.data[0].content)
+      },
+      error:function() {
+
       }
     })
   })

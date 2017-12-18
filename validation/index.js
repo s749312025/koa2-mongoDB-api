@@ -2,6 +2,7 @@ const vaildator = require('validator');
 //const v = new vaildator();
 
 const user = require('./user.js')
+const article = require('./article.js')
 
 const switchJson = (eventName) => {
 	let e = [];
@@ -11,6 +12,12 @@ const switchJson = (eventName) => {
 			break;
 		case 'login':
 			e = [...user.login]
+			break;
+		case 'articleAdd':
+			e = [...article.add]
+			break;
+		case 'articleUpdate':
+			e = [...article.update]
 			break;
 		default:
 			e = []
@@ -25,6 +32,10 @@ const vaildatorFun = (data, v_type) => {
 		let _noStr = ''
 		switch(rule.rule) {
 			case 'isNull':
+				if(!data[rule.name]) {
+					_noStr = rule.cn_name + '不能为空'
+					break
+				};
 				vaildator.isEmpty(data[rule.name]) ? _noStr = rule.cn_name + '不能为空' : '';
 				break;
 			case 'isEmail':

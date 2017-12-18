@@ -1,6 +1,7 @@
 const router = require('koa-router')()
 
 const User = require('../model/user')
+const Article = require('../model/article')
 const vaildatorFun = require('../validation')
 
 router.post('/ceshi', async(ctx, next) => {
@@ -24,6 +25,8 @@ const thisValidator = (type) => {
 
 router.post('/api/signup', thisValidator('signup'), User.signUp)
 router.post('/api/login', thisValidator('login'), User.login)
-router.post('/api/article/add', thisValidator('articleAdd'), User.login)
+router.post('/api/article/add', thisValidator('articleAdd'), Article.add)
+router.post('/api/article/list', Article.list)
+router.post('/api/article/update', thisValidator('articleUpdate'), Article.update)
 
 module.exports =  router;

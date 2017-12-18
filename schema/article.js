@@ -3,10 +3,9 @@ const Schema = mongoose.Schema;
 
 var ArticleSchema = new Schema({
   title: {type:String},
-  created: {type:String},
-  username : {type:String},
-  password : {type:String},
-  nickname: {type:String},
+  created: {type:Date},
+  content : {type:String},
+  last_mod_time : {type:Date},
   role: {type:String}
 })
 

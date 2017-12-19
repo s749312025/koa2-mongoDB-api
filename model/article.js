@@ -10,6 +10,7 @@ exports.add = async(ctx, next) => {
 		content: articleInfor.content,
 		created: new Date(),
 		last_mod_time: new Date(),
+    tags: articleInfor.tags.split(','),
 		role: articleInfor.role ? articleInfor.role : 'normal',
 	})
 	try {
@@ -34,7 +35,8 @@ exports.list = async(ctx, next) => {
 		if(!articleInfor) {
 			return _option
 		}
-		!articleInfor.title || articleInfor.title == '' ? '' : _option.title = new RegExp(articleInfor.title);
+    !articleInfor.title || articleInfor.title == '' ? '' : _option.title = new RegExp(articleInfor.title);
+		!articleInfor.tags || articleInfor.tags == '' ? '' : _option.tags = articleInfor.tags;
 		return _option
 	}
 	searchOption()

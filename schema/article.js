@@ -5,6 +5,7 @@ var ArticleSchema = new Schema({
   title: {type:String},
   created: {type:Date},
   content : {type:String},
+  tags: {type:Array},
   last_mod_time : {type:Date},
   role: {type:String}
 })

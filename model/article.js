@@ -41,7 +41,7 @@ exports.list = async(ctx, next) => {
 	}
 	searchOption()
 	try {
-		let list = await articleModel.find(_option, { '__v': 0 }).skip(page.skipNum).limit(page.pageSize)
+		let list = await articleModel.find(_option, { '__v': 0 }).sort({'created':-1}).skip(page.skipNum).limit(page.pageSize)
 		ctx.body = {status:'success', data: list}
 	} catch (error) {
 		ctx.body = {status: 'error', data: error}

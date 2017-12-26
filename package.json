@@ -20,5 +20,8 @@
     "monk": "^6.0.5",
     "util": "^0.10.3",
     "validator": "^9.2.0"
+  },
+  "devDependencies": {
+    "qiniu": "^7.1.1"
   }
 }

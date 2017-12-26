@@ -9,6 +9,7 @@
 </head>
 <body>
   <div>
+    <button id="token">token</button>
     <h1>注册</h1>
     <div>
       username：<input type="text" id="username">
@@ -62,6 +63,22 @@
 </body>
 <script>
 	var host = location.protocol + '//' +  location.host
+  var reqest = function(options) {
+    $.ajax({
+      type:"POST",
+      url: host + options.url,
+      dataType: 'json',
+      data: options.data,
+      success:function(data) {
+        console.log(data)
+      }
+    })
+  }
+  $('#token').on('click', function() {
+    reqest({
+      url: '/api/token/getToken'
+    })
+  })
   $('#sub').on('click', function() {
     $.ajax({
       type:"POST",

@@ -36,7 +36,8 @@ exports.list = async(ctx, next) => {
 			return _option
 		}
     !articleInfor.title || articleInfor.title == '' ? '' : _option.title = new RegExp(articleInfor.title);
-		!articleInfor.tags || articleInfor.tags == '' ? '' : _option.tags = articleInfor.tags;
+    !articleInfor.tags || articleInfor.tags == '' ? '' : _option.tags = articleInfor.tags;
+		!articleInfor._id || articleInfor._id == '' ? '' : _option._id = articleInfor._id;
 		return _option
 	}
 	searchOption()

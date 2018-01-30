@@ -5,7 +5,10 @@ var article = {
 	],
 	update: [
 		{name: 'id', cn_name: '文章ID', rule: 'isNull'}
-	]
+	],
+  delete: [
+    {name: 'id', cn_name: '文章ID', rule: 'isNull'}
+  ]
 }
 
 module.exports = article

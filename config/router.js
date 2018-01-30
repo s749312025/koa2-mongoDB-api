@@ -29,5 +29,6 @@ router.post('/api/login', thisValidator('login'), User.login)
 router.post('/api/article/add', thisValidator('articleAdd'), Article.add)
 router.post('/api/article/list', Article.list)
 router.post('/api/article/update', thisValidator('articleUpdate'), Article.update)
+router.post('/api/article/delete', thisValidator('articleDelete'), Article.delete)
 router.post('/api/token/getToken',Token.getToken)
 module.exports =  router;

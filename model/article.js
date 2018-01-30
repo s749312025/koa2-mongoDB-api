@@ -62,7 +62,16 @@ exports.update = async(ctx, next) => {
 	}
 }
 
-
+exports.delete = async(ctx, next) => {
+	let infor = ctx.request.body;
+	let articleId = infor.id;
+	try {
+		let details = await articleModel.remove({"_id":articleId})
+		ctx.body = {status:'success', data: '删除成功'}
+	}catch(error) {
+		ctx.body = {status: 'error', data: error}
+	}
+}
 
 
 

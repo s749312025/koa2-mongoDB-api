@@ -19,6 +19,9 @@ const switchJson = (eventName) => {
 		case 'articleUpdate':
 			e = [...article.update]
 			break;
+    case 'articleDelete':
+      e = [...article.delete]
+      break;
 		default:
 			e = []
 	}

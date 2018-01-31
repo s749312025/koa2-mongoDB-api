@@ -10,7 +10,7 @@ exports.add = async(ctx, next) => {
 		content: articleInfor.content,
 		created: new Date(),
 		last_mod_time: new Date(),
-    tags: articleInfor.tags.split(','),
+    tags: articleInfor.tags,
 		role: articleInfor.role ? articleInfor.role : 'normal',
 	})
 	try {
